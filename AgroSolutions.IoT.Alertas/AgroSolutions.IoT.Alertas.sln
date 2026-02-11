@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{EAE6DF2C-A923-4F47-A043-3CA60B91B7BC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{8B2AB9D1-D52F-465C-9DF2-2579B7CCABE1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{369F035F-6DAB-4C0A-AF16-4B0DFF476B8F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{E0A06C20-34D7-42FD-9FC6-4962B932FC5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgroSolutions.IoT.Alertas.Api", "AgroSolutions.IoT.Alertas.Api\AgroSolutions.IoT.Alertas.Api.csproj", "{689FDEDD-CDE0-4476-8E90-E28DA5BF2CEA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{14DF54CD-21DD-4802-A9EA-61A4363E830F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgroSolutions.IoT.Alertas.Application", "AgroSolutions.IoT.Alertas.Application\AgroSolutions.IoT.Alertas.Application.csproj", "{B17BDD38-97F5-4041-8947-0E0090984E7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgroSolutions.IoT.Alertas.Infrastructure", "AgroSolutions.IoT.Alertas.Infrastructure\AgroSolutions.IoT.Alertas.Infrastructure.csproj", "{D71D6456-5970-4481-9AD5-C88298670131}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgroSolutions.IoT.Alertas.Domain", "AgroSolutions.IoT.Alertas.Domain\AgroSolutions.IoT.Alertas.Domain.csproj", "{CECFE695-4304-472A-A33D-A97D6DB72834}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{689FDEDD-CDE0-4476-8E90-E28DA5BF2CEA} = {EAE6DF2C-A923-4F47-A043-3CA60B91B7BC}
+		{B17BDD38-97F5-4041-8947-0E0090984E7D} = {8B2AB9D1-D52F-465C-9DF2-2579B7CCABE1}
+		{D71D6456-5970-4481-9AD5-C88298670131} = {E0A06C20-34D7-42FD-9FC6-4962B932FC5B}
+		{CECFE695-4304-472A-A33D-A97D6DB72834} = {369F035F-6DAB-4C0A-AF16-4B0DFF476B8F}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{689FDEDD-CDE0-4476-8E90-E28DA5BF2CEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{689FDEDD-CDE0-4476-8E90-E28DA5BF2CEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{689FDEDD-CDE0-4476-8E90-E28DA5BF2CEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{689FDEDD-CDE0-4476-8E90-E28DA5BF2CEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B17BDD38-97F5-4041-8947-0E0090984E7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B17BDD38-97F5-4041-8947-0E0090984E7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B17BDD38-97F5-4041-8947-0E0090984E7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B17BDD38-97F5-4041-8947-0E0090984E7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D71D6456-5970-4481-9AD5-C88298670131}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D71D6456-5970-4481-9AD5-C88298670131}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D71D6456-5970-4481-9AD5-C88298670131}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D71D6456-5970-4481-9AD5-C88298670131}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CECFE695-4304-472A-A33D-A97D6DB72834}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CECFE695-4304-472A-A33D-A97D6DB72834}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CECFE695-4304-472A-A33D-A97D6DB72834}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CECFE695-4304-472A-A33D-A97D6DB72834}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
