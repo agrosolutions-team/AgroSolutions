@@ -33,8 +33,10 @@ jobs:
         dotnet build AgroSolutions.IoT.IngestaoDados/AgroSolutions.IoT.IngestaoDados.sln --configuration Release --no-restore
         dotnet build AgroSolutions.IoT.Propriedades/AgroSolutions.IoT.Propriedades.sln --configuration Release --no-restore
 
-    # - name: Testes
-    #   run: dotnet test AgroSolutions.IoT.Propriedades.Tests/AgroSolutions.IoT.Propriedades.Tests.csproj --verbosity normal
+    - name: Testes
+      run: |
+        dotnet test AgroSolutions.IoT.Propriedades/AgroSolutions.IoT.Propriedades.Tests/AgroSolutions.IoT.Propriedades.Tests.csproj --verbosity normal
+        dotnet test AgroSolutions.IoT.Identidade/AgroSolutions.IoT.Identidade.Tests/AgroSolutions.IoT.Identidade.Tests.csproj --verbosity normal
 
   build-and-deploy:
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
