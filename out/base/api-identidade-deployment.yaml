@@ -1,0 +1,37 @@
+#! api-identidade-deployment.yaml
+# Generated code, do not edit
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: api-identidade
+    namespace: agrosolutions
+    labels:
+        com.docker.compose.project: agrosolutions
+        com.docker.compose.service: api-identidade
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            com.docker.compose.project: agrosolutions
+            com.docker.compose.service: api-identidade
+    strategy:
+        type: Recreate
+    template:
+        metadata:
+            labels:
+                com.docker.compose.project: agrosolutions
+                com.docker.compose.service: api-identidade
+                com.docker.compose.network.agrosolutions-network: "true"
+        spec:
+            containers:
+                - name: agrosolutions-iot-identidade-container
+                  image: agrosolutions-api-identidade
+                  imagePullPolicy: IfNotPresent
+                  env:
+                    - name: ASPNETCORE_ENVIRONMENT
+                      value: "Development"
+                    - name: NEW_RELIC_LICENSE_KEY
+                      value: "a93de70c8ec068ba98a386ffe4fb3346FFFFNRAL"
+                  ports:
+                    - name: api-identi-9000
+                      containerPort: 9000

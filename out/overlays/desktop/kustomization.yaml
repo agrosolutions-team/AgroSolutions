@@ -1,0 +1,14 @@
+#! kustomization.yaml
+# Generated code, do not edit
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+    - ../../base
+patches:
+    - path: api-alertas-service.yaml
+    - path: api-identidade-service.yaml
+    - path: api-ingestao-dados-service.yaml
+    - path: api-propriedades-service.yaml
+    - path: postgres-dbdata-persistentVolumeClaim.yaml
+    - path: postgres-service.yaml
+    - path: rabbitmq-service.yaml

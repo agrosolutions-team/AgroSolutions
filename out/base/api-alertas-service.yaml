@@ -1,0 +1,23 @@
+# check if there is at least one published port
+
+#! api-alertas-service.yaml
+# Generated code, do not edit
+apiVersion: v1
+kind: Service
+metadata:
+    name: api-alertas-published
+    namespace: agrosolutions
+    labels:
+        com.docker.compose.project: agrosolutions
+        com.docker.compose.service: api-alertas
+spec:
+    selector:
+        com.docker.compose.project: agrosolutions
+        com.docker.compose.service: api-alertas
+    ports:
+        - name: api-alerta-9003
+          port: 9003
+          protocol: TCP
+          targetPort: api-alerta-9003
+
+# check if there is at least one published port

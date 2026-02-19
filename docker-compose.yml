@@ -1,0 +1,116 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: rabbitmq:4-management
+    container_name: agrosolutions-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    networks:
+      - agrosolutions-network
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  postgres:
+    image: postgres:15
+    container_name: agrosolutions-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    networks:
+      - agrosolutions-network
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api-alertas:
+    build:
+      context: ./AgroSolutions.IoT.Alertas
+      dockerfile: Dockerfile
+    container_name: agrosolutions-iot-alertas-container
+    ports:
+      - "9003:9003"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      NEW_RELIC_LICENSE_KEY: a93de70c8ec068ba98a386ffe4fb3346FFFFNRAL
+      RabbitMq__HostName: rabbitmq
+      RabbitMq__Port: 5672
+    networks:
+      - agrosolutions-network
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+
+  api-ingestao-dados:
+    build:
+      context: ./AgroSolutions.IoT.IngestaoDados
+      dockerfile: Dockerfile
+    container_name: agrosolutions-iot-ingestao-dados-container
+    ports:
+      - "9002:9002"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      NEW_RELIC_LICENSE_KEY: a93de70c8ec068ba98a386ffe4fb3346FFFFNRAL
+      RabbitMq__HostName: rabbitmq
+      RabbitMq__Port: 5672
+      UriApiPropriedades: http://api-propriedades:9001
+    networks:
+      - agrosolutions-network
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+
+  api-propriedades:
+    build:
+      context: ./AgroSolutions.IoT.Propriedades
+      dockerfile: Dockerfile
+    container_name: agrosolutions-iot-propriedades-container
+    ports:
+      - "9001:9001"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      NEW_RELIC_LICENSE_KEY: a93de70c8ec068ba98a386ffe4fb3346FFFFNRAL
+    networks:
+      - agrosolutions-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+        
+  api-identidade:
+    build:
+      context: ./AgroSolutions.IoT.Identidade
+      dockerfile: Dockerfile
+    container_name: agrosolutions-iot-identidade-container
+    ports:
+      - "9000:9000"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      NEW_RELIC_LICENSE_KEY: a93de70c8ec068ba98a386ffe4fb3346FFFFNRAL
+    networks:
+      - agrosolutions-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+networks:
+  agrosolutions-network:
+    driver: bridge
+
+volumes:
+  dbdata:

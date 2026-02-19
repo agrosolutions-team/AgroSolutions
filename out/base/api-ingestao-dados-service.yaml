@@ -1,0 +1,21 @@
+#! api-ingestao-dados-service.yaml
+# Generated code, do not edit
+apiVersion: v1
+kind: Service
+metadata:
+    name: api-ingestao-dados-published
+    namespace: agrosolutions
+    labels:
+        com.docker.compose.project: agrosolutions
+        com.docker.compose.service: api-ingestao-dados
+spec:
+    selector:
+        com.docker.compose.project: agrosolutions
+        com.docker.compose.service: api-ingestao-dados
+    ports:
+        - name: api-ingest-9002
+          port: 9002
+          protocol: TCP
+          targetPort: api-ingest-9002
+
+# check if there is at least one published port

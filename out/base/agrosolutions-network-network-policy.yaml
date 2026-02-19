@@ -1,0 +1,24 @@
+#! agrosolutions-network-network-policy.yaml
+# Generated code, do not edit
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+    name: agrosolutions-network-network-policy
+    namespace: agrosolutions
+spec:
+    podSelector:
+        matchLabels:
+            com.docker.compose.network.agrosolutions-network: "true"
+    policyTypes:
+        - Ingress
+        - Egress
+    ingress:
+        - from:
+            - podSelector:
+                matchLabels:
+                    com.docker.compose.network.agrosolutions-network: "true"
+    egress:
+        - to:
+            - podSelector:
+                matchLabels:
+                    com.docker.compose.network.agrosolutions-network: "true"

@@ -1,0 +1,43 @@
+#! api-ingestao-dados-deployment.yaml
+# Generated code, do not edit
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: api-ingestao-dados
+    namespace: agrosolutions
+    labels:
+        com.docker.compose.project: agrosolutions
+        com.docker.compose.service: api-ingestao-dados
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            com.docker.compose.project: agrosolutions
+            com.docker.compose.service: api-ingestao-dados
+    strategy:
+        type: Recreate
+    template:
+        metadata:
+            labels:
+                com.docker.compose.project: agrosolutions
+                com.docker.compose.service: api-ingestao-dados
+                com.docker.compose.network.agrosolutions-network: "true"
+        spec:
+            containers:
+                - name: agrosolutions-iot-ingestao-dados-container
+                  image: agrosolutions-api-ingestao-dados
+                  imagePullPolicy: IfNotPresent
+                  env:
+                    - name: ASPNETCORE_ENVIRONMENT
+                      value: "Development"
+                    - name: NEW_RELIC_LICENSE_KEY
+                      value: "a93de70c8ec068ba98a386ffe4fb3346FFFFNRAL"
+                    - name: RabbitMq__HostName
+                      value: "rabbitmq"
+                    - name: RabbitMq__Port
+                      value: "5672"
+                    - name: UriApiPropriedades
+                      value: "http://api-propriedades:9001"
+                  ports:
+                    - name: api-ingest-9002
+                      containerPort: 9002

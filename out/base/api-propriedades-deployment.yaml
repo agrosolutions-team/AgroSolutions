@@ -1,0 +1,37 @@
+#! api-propriedades-deployment.yaml
+# Generated code, do not edit
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: api-propriedades
+    namespace: agrosolutions
+    labels:
+        com.docker.compose.project: agrosolutions
+        com.docker.compose.service: api-propriedades
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            com.docker.compose.project: agrosolutions
+            com.docker.compose.service: api-propriedades
+    strategy:
+        type: Recreate
+    template:
+        metadata:
+            labels:
+                com.docker.compose.project: agrosolutions
+                com.docker.compose.service: api-propriedades
+                com.docker.compose.network.agrosolutions-network: "true"
+        spec:
+            containers:
+                - name: agrosolutions-iot-propriedades-container
+                  image: agrosolutions-api-propriedades
+                  imagePullPolicy: IfNotPresent
+                  env:
+                    - name: ASPNETCORE_ENVIRONMENT
+                      value: "Development"
+                    - name: NEW_RELIC_LICENSE_KEY
+                      value: "a93de70c8ec068ba98a386ffe4fb3346FFFFNRAL"
+                  ports:
+                    - name: api-propri-9001
+                      containerPort: 9001
