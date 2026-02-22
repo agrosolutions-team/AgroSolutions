@@ -37,6 +37,7 @@ jobs:
       run: |
         dotnet test AgroSolutions.IoT.Propriedades/AgroSolutions.IoT.Propriedades.Tests/AgroSolutions.IoT.Propriedades.Tests.csproj --verbosity normal
         dotnet test AgroSolutions.IoT.Identidade/AgroSolutions.IoT.Identidade.Tests/AgroSolutions.IoT.Identidade.Tests.csproj --verbosity normal
+        dotnet test AgroSolutions.IoT.IngestaoDados/AgroSolutions.IoT.IngestaoDados.Tests/AgroSolutions.IoT.IngestaoDados.Tests.csproj --verbosity normal
 
   build-and-deploy:
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'

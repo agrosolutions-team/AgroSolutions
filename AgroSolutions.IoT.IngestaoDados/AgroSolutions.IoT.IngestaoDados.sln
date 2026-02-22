@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgroSolutions.IoT.IngestaoD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgroSolutions.IoT.IngestaoDados.Infrastructure", "AgroSolutions.IoT.IngestaoDados.Infrastructure\AgroSolutions.IoT.IngestaoDados.Infrastructure.csproj", "{E71F9804-7CC0-405E-B854-5C1C10910659}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgroSolutions.IoT.IngestaoDados.Tests", "AgroSolutions.IoT.IngestaoDados.Tests\AgroSolutions.IoT.IngestaoDados.Tests.csproj", "{499BEEB9-6437-4BCA-91AA-8FE606C3BFCD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,7 @@ Global
 		{7BD3B787-A93A-4A8C-B110-3975BC19B03F} = {BDD1646E-DE11-44CA-AFC1-1218F0DAADDD}
 		{35C7C163-F139-4266-A87D-7A06E66EC27F} = {E08BC133-A41D-4C02-803F-7332EE0427BE}
 		{E71F9804-7CC0-405E-B854-5C1C10910659} = {8F8C35E1-EADA-426C-BEC8-9CE2B782EB0F}
+		{499BEEB9-6437-4BCA-91AA-8FE606C3BFCD} = {D204136B-A2D9-4E61-A692-DB4B350EC3E2}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{F5DF264D-B1B7-471E-8942-9BA6AC486345}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -46,5 +49,9 @@ Global
 		{E71F9804-7CC0-405E-B854-5C1C10910659}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E71F9804-7CC0-405E-B854-5C1C10910659}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E71F9804-7CC0-405E-B854-5C1C10910659}.Release|Any CPU.Build.0 = Release|Any CPU
+		{499BEEB9-6437-4BCA-91AA-8FE606C3BFCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{499BEEB9-6437-4BCA-91AA-8FE606C3BFCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{499BEEB9-6437-4BCA-91AA-8FE606C3BFCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{499BEEB9-6437-4BCA-91AA-8FE606C3BFCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
