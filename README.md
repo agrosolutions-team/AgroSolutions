@@ -30,7 +30,7 @@ Api → Controllers e configurações
 - **Resiliência**: Falha em um serviço não afeta os demais
 - **Desenvolvimento Paralelo**: Equipes diferentes podem trabalhar em paralelo
 
-**Serviços Identificados:**
+**Serviços Desenvolvidos:**
 1. **AgroSolutions.IoT.Identidade**: Autenticação e gestão de usuários
 2. **AgroSolutions.IoT.Propriedades**: Gerenciamento de propriedades rurais e talhões
 3. **AgroSolutions.IoT.IngestaoDados**: Processamento de dados de sensores
